@@ -1,8 +1,7 @@
 package data;
 
-import java.util.Objects;
-
 /**
+ * Дата-класс, используемый для проверки регистрации
  * @author Sharapov Yuri
  */
 public class Registration extends RegistrationFail {

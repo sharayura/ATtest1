@@ -17,15 +17,24 @@ import static org.hamcrest.Matchers.notNullValue;
 import static specification.Specification.*;
 
 /**
+ * Класс тестов
  * @author Sharapov Yuri
  */
 public class APITests {
 
+    /**
+     * Метод очистки спецификаций после каждого теста
+     */
     @AfterMethod
     public void afterEach() {
         deleteSpec();
     }
 
+    /**
+     * Кейс 1.
+     * Протестировать регистрацию пользователя в системе,
+     * успешная регистрация с валидными данными
+     */
     @Test
     public void case1RegistrationSuccessTest() {
         installSpec(requestSpec(), responseSpec(200));
@@ -40,6 +49,12 @@ public class APITests {
                 .body("token", notNullValue());
     }
 
+    /**
+     * Кейс 1.
+     * Протестировать регистрацию пользователя в системе,
+     * регистрация с ошибкой из-за отсутствия пароля и проверить,что статус-код
+     * в ответе 400
+     */
     @Test
     public void case1RegistrationFailTest() {
         installSpec(requestSpec());
@@ -55,6 +70,11 @@ public class APITests {
         Assert.assertEquals(statusCode, 400, "Wrong status code " + statusCode);
     }
 
+    /**
+     * Кейс 2.
+     * <p>1. Получить список пользователей страницы</p>
+     * <p>2. Убедиться, что email пользователей имеет окончание @reqres.in</p>
+     */
     @Test
     public void case2EmailEndsTest() {
         installSpec(requestSpec(), responseSpec(200));
@@ -75,6 +95,10 @@ public class APITests {
         Assert.assertTrue(wrongEmails.isEmpty(), "Wrong emails: " + wrongEmails);
     }
 
+    /**
+     * Кейс 3.
+     * Удалить второго пользователя и проверить что статус-код 204
+     */
     @Test
     public void case3DeleteUserTest() {
         installSpec(requestSpec());
@@ -87,7 +111,10 @@ public class APITests {
         Assert.assertEquals(statusCode, 204, "Wrong status code (" + statusCode + ")");
     }
 
-
+    /**
+     * Кейс 4.
+     * Обновить информацию о пользователе методом patch и сравнить дату обновления с текущей датой в системе
+     */
     @Test
     public void case4UpdateUserTest() {
         installSpec(requestSpec(), responseSpec(200));

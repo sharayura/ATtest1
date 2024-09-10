@@ -1,6 +1,7 @@
 package data;
 
 /**
+ * Дата-класс для обновления данных пользователя
  * @author Sharapov Yuri
  */
 public class UserUpdate {

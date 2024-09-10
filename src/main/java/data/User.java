@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import java.util.Objects;
 
 /**
+ * Дата-класс пользователя
  * @author Sharapov Yuri
  */
 public class User {

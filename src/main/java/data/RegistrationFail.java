@@ -1,6 +1,7 @@
 package data;
 
 /**
+ * Дата-класс, используемый для проверки регистрации с ошибкой
  * @author Sharapov Yuri
  */
 public class RegistrationFail {
